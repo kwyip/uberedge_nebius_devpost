@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Uberedge Public Demo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='placeholder.css') }}">
+</head>
+<body>
+  <main>
+    <p class="label">SANITIZED PUBLIC DEMO</p>
+    <h1>Uberedge</h1>
+    <p>NVIDIA Nemotron agents on Nebius Token Factory, grounded with bounded Tavily evidence.</p>
+
+    <section>
+      <h2>Opportunity Council</h2>
+      <p>The production map, branded layout, private services, and operational data are intentionally omitted.</p>
+      <textarea id="prompt" rows="8" maxlength="6000">Boston shift, 5:00 PM-9:00 PM. Verified candidate: a public event ends at 6:30 PM three estimated miles away. Exact revenue is unknown. Build a cautious plan.</textarea>
+      <button id="run" type="button">Run council</button>
+      <pre id="output" aria-live="polite">Ready.</pre>
+    </section>
+
+    <aside>
+      <strong>Public adapters:</strong> selected cloud · selected map service · placeholder frontend
+    </aside>
+  </main>
+  <script>
+    document.getElementById("run").addEventListener("click", async () => {
+      const output = document.getElementById("output");
+      output.textContent = "Running…";
+      const response = await fetch("/api/v1/plan", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({prompt: document.getElementById("prompt").value})
+      });
+      output.textContent = JSON.stringify(await response.json(), null, 2);
+    });
+  </script>
+</body>
+</html>
