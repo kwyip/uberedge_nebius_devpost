@@ -1,0 +1,10 @@
+/* Generic submission placeholder. The production design system is intentionally not published. */
+:root { color-scheme: dark; font-family: system-ui, sans-serif; }
+body { margin: 0; background: #111827; color: #e5e7eb; }
+main { width: min(760px, calc(100% - 2rem)); margin: 4rem auto; }
+.label { color: #93c5fd; font-size: .8rem; letter-spacing: .14em; }
+h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin: .25rem 0; }
+section, aside { margin-top: 2rem; padding: 1.25rem; border: 1px solid #374151; border-radius: .75rem; background: #1f2937; }
+textarea, pre { box-sizing: border-box; width: 100%; padding: 1rem; border: 1px solid #4b5563; border-radius: .5rem; background: #111827; color: inherit; }
+button { margin: 1rem 0; padding: .7rem 1rem; border: 0; border-radius: .5rem; background: #60a5fa; color: #07111f; font-weight: 700; cursor: pointer; }
+pre { overflow: auto; white-space: pre-wrap; }
